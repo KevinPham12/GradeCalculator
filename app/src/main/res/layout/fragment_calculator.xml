@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for the grade calculator -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="calculatorFragment"
+            type="com.example.gradecalculator.CalculatorFragment" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/course_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="18sp"
+            android:hint="@string/enter_course_name"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/assignment_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18sp"
+            android:layout_marginTop="18sp"
+            android:text="@string/assignment_n_optional"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/course_title" />
+
+        <TextView
+            android:id="@+id/grade_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="78sp"
+            android:text="@string/grade_n"
+            app:layout_constraintStart_toEndOf="@id/assignment_header"
+            app:layout_constraintTop_toTopOf="@id/assignment_header" />
+
+        <TextView
+            android:id="@+id/weight_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:text="@string/weight_n"
+            app:layout_constraintStart_toEndOf="@id/grade_header"
+            app:layout_constraintTop_toTopOf="@id/grade_header" />
+
+        <LinearLayout
+            android:id="@+id/parent_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="120sp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/add_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="18sp"
+                android:onClick="@{() -> calculatorFragment.onAddRow()}"
+                android:text="@string/add_row" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/calculate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18sp"
+            android:layout_marginBottom="18sp"
+            android:onClick="@{() -> calculatorFragment.calculate()}"
+            android:text="@string/calculate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desired_grade"
+            android:layout_width="150sp"
+            android:layout_height="60sp"
+            android:layout_marginStart="8sp"
+            android:hint="@string/desired_final_grade"
+            android:inputType="numberDecimal"
+            app:layout_constraintBottom_toBottomOf="@+id/calculate_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/calculate_button">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/desired_grade_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberDecimal"
+                android:text="@string/_50" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

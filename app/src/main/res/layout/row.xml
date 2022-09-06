@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout for each row being added/removed -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="row"
+            type="com.example.gradecalculator.CalculatorFragment" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/child_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/assignment"
+            android:layout_width="135sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="18sp"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/grade"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="25sp"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="60sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="25sp"
+            android:inputType="numberDecimal" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="40sp"
+            android:layout_height="40sp"
+            android:layout_marginStart="5sp"
+            android:background="@android:drawable/ic_delete" />
+
+    </LinearLayout>
+
+</layout>
